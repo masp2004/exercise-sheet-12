@@ -2,13 +2,13 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.collectionstreams;
 
 /**
  * In this class you are supposed to train your skills in using the Java Streams API and Collections.
- * Implement the 4 empty operations in this class properly by using streams.
+ * Implement the four empty operations in this class properly by using streams.
  * Do not forget to use defensive programming and to comment your code!
  */
-public class StreamsAndFilterExercise {
+public final class StreamsAndFilterExercise {
 
 	public static void main(String[] args) {
-		StudentRecord record = new StudentRecord();
+		final StudentRecord record = new StudentRecord();
 		DataGenerator.fillRecordWithTestData(record);
 		DataGenerator.fillRecordWithRealLifePSEMarks(record);
 
@@ -16,7 +16,6 @@ public class StreamsAndFilterExercise {
 		getStudentsNameOlderThan(record, 23);
 		getNumberOfStudentsOlderThan(record, 23);
 		getStudentsFailedExam(record, 25, "PSE");
-
 	}
 
 	private static void getStudentName(final StudentRecord record) {

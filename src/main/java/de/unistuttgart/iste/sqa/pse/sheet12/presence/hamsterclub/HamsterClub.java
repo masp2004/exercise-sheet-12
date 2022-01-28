@@ -9,19 +9,17 @@ import java.util.List;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class HamsterClub implements Club {
+public final class HamsterClub implements Club {
 
 	private final List<ClubMember> members;
-	private final Comparator<ClubMember> clubComparator;
+	private final Comparator<ClubMember> clubMemberComparator;
 	
 	public HamsterClub(final List<ClubMember> members) throws IllegalArgumentException {
-		if(members != null) {
-			this.members = members;
-		} else {
+		if(members == null) {
 			throw new IllegalArgumentException();
 		}
-		
-		this.clubComparator = generateComparator();
+		this.members = members;
+		this.clubMemberComparator = generateComparator();
 	}
 	
 	

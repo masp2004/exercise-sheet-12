@@ -12,13 +12,9 @@ import java.util.Map;
  * @author mfrank
  *
  */
-public class Student {
+public final class Student {
 	/*@
-  	  @ invariant name != null;
-  	  @ invariant birthday != null;
-  	  @ invariant gender != null;
-  	  @ invariant emailAddress != null;
-  	  @ invariant writtenExam != null;
+  	  @ invariant name != null && birthday != null && gender != null && emailAddress != null && writtenExam != null;
    	  @*/
 
 	public enum Sex {
@@ -32,13 +28,10 @@ public class Student {
 	private final Map<String, Exam> writtenExams;
 
 	/*@
-	  @ requires name != null;
-	  @ requires birthday != null;
-	  @ requires gender != null;
-	  @ requires email != null;
+	  @ requires name != null && birthday != null && gender != null && email != null;
 	  @*/
 	/**
-	 * Constructor for a Student
+	 * Constructor for a student.
 	 * 
 	 * @param name
 	 * @param birthday
@@ -52,7 +45,6 @@ public class Student {
 		if (name == null || birthday == null || gender == null || email == null) {
 			throw new IllegalArgumentException();
 		}
-
 		this.name = name;
 		this.birthday = birthday;
 		this.gender = gender;
@@ -65,22 +57,20 @@ public class Student {
 	  @*/
 	/**
 	 * Adds an exam to the exam-list of this student. It uses a map and the name of the exam as key. 
-	 * To get the exam use getExam(key) for a single exam or getWrittenExams() for all.
+	 * To get the exam use getExam(key) for a single exam or getWrittenExams() for all exams.
 	 * 
 	 * @param exam
 	 * @throws IllegalArgumentException if exam is {@code null}.
 	 */
 	public void addExam(final Exam exam) throws IllegalArgumentException {
-
 		if (exam == null) {
 			throw new IllegalArgumentException();
 		}
-
 		writtenExams.put(exam.getSubject(), exam);
 	}
 	
 	/**
-	 * @return the age in Years (int) of the student. 
+	 * @return the age in years (int) of the student. 
 	 */
 	public int getAge() {
 		return (int) ChronoUnit.YEARS.between(birthday, LocalDate.now());
@@ -96,7 +86,7 @@ public class Student {
 	 * @return exam for given key
 	 * @throws IllegalArgumentException if examTag is {@code null}.
 	 */
-	public /*@ pure @*/ Exam getExam(final String examTag) throws IllegalArgumentException{
+	public /*@ pure @*/ Exam getExam(final String examTag) throws IllegalArgumentException {
 		if(examTag == null){
 			throw new IllegalArgumentException();
 		}
@@ -120,7 +110,13 @@ public class Student {
 	}
 
 	public /*@ pure @*/ Map<String, Exam> getWrittenExams() {
-		return writtenExams;
+		final HashMap<String, Exam> copy = new HashMap<>();
+		for(final String key : writtenExams.keySet()) {
+			final Exam exam = writtenExams.get(key);
+			final Exam copyExam = new Exam(exam.getMark(),exam.getSubject());
+			copy.put(key,copyExam);
+		}
+		return copy;
 	}
 
 }

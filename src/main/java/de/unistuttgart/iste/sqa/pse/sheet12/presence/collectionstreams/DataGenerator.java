@@ -5,13 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 /**
- * 
  * Generates semi-random testdata for Students and exams
  * 
  * @author mfrank
- *
  */
-public class DataGenerator {
+public final class DataGenerator {
 
 	private static final Random markGenerator = new Random();
 
@@ -19,21 +17,24 @@ public class DataGenerator {
 	 * @return Random number between 1.0 and 6.0
 	 */
 	private static int getMarks() {
-
 		return markGenerator.nextInt(5) + 1;
 	}
 
+	/*@
+	  @ requires record != null;
+	  @*/
 	/**
-	 * 
 	 * Adds an Exam with the name "PSE" to all students in the given list and
 	 * generates a random mark between 1.0 and 6.0
 	 * 
 	 * @param record
+	 * @throws IllegalArgumentException if record is {@code null}.
 	 */
 	public static void fillRecordWithRealLifePSEMarks(final StudentRecord record) {
-		assert (record != null);
-
-		for (Student aStudent : record.getAllStudents()) {
+		if(record == null){
+			throw new IllegalArgumentException();	
+		}
+		for (final Student aStudent : record.getAllStudents()) {
 			aStudent.addExam(new Exam(getMarks(), "PSE"));
 		}
 	}
@@ -43,12 +44,14 @@ public class DataGenerator {
 	 * sex, and email
 	 * 
 	 * @param record
+	 * @throws IllegalArgumentException if record is {@code null}.
 	 */
 	public static void fillRecordWithTestData(final StudentRecord record) {
+		if(record == null){
+			throw new IllegalArgumentException();	
+		}
 
-		assert (record != null);
-
-		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		final DateTimeFormatter df = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 		record.addStudent(
 				new Student("John", LocalDate.parse("20-08-1996", df), Student.Sex.MALE, "john@uni-stuttgart.de"));
@@ -95,7 +98,7 @@ public class DataGenerator {
 		record.addStudent(
 				new Student("Tanja", LocalDate.parse("01-11-1993", df), Student.Sex.FEMALE, "tanja@uni-stuttgart.de"));
 
-		record.addStudent(new Student("Princes Dimond", LocalDate.parse("11-01-1991", df), Student.Sex.FEMALE,
+		record.addStudent(new Student("Princess Diamond", LocalDate.parse("11-01-1991", df), Student.Sex.FEMALE,
 				"prince.d@uni-stuttgart.de"));
 
 		record.addStudent(
