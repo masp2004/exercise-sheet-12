@@ -1,8 +1,8 @@
 package de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub;
 
 /**
- * This class models an individual member of a club. 
- * @see de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.HamsterClub
+ * This class models an individual member of a {@link Club}. 
+ * @see de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.Club
  */
 public final class ClubMember implements Comparable<ClubMember> {
 	
@@ -34,7 +34,7 @@ public final class ClubMember implements Comparable<ClubMember> {
 	}
 	
 	/**
-	 * Checks if the speficied object equals the club member on which it is called.
+	 * Checks if the specified object equals the club member on which it is called.
 	 */
 	@Override
 	public boolean equals(final Object object) { 
@@ -53,8 +53,8 @@ public final class ClubMember implements Comparable<ClubMember> {
         	   member.getAge() == age &&
         	   member.getContributions() == contributions &&
         	   member.getHasPaidContributions() == hasPaidFees; 
-    } 
- 
+    }
+	
 	/**
 	 * Overridden compareTo method for use with clubMemberComparator. It compares members based on their age.
 	 */
@@ -62,7 +62,7 @@ public final class ClubMember implements Comparable<ClubMember> {
 	public int compareTo(final ClubMember otherMember) {
 		return this.age - otherMember.getAge();
 	}
-		
+	
 	public /*@ pure @*/ String getName() {
 		return name;
 	}
@@ -76,6 +76,7 @@ public final class ClubMember implements Comparable<ClubMember> {
 		}
 		this.name = name;
 	}
+	
 	public /*@ pure @*/ int getAge() {
 		return age;
 	}

@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Write a description for your HamsterClub class.
+ * TODO: Write a description for your HamsterClub class.
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -13,17 +13,18 @@ public final class HamsterClub implements Club {
 
 	private final List<ClubMember> members;
 	private final Comparator<ClubMember> clubMemberComparator;
-	
+
+	/*@
+	  @ requires members must not be null;
+	  @*/
 	public HamsterClub(final List<ClubMember> members) throws IllegalArgumentException {
-		if(members == null) {
+		if (members == null) {
 			throw new IllegalArgumentException();
 		}
 		this.members = members;
 		this.clubMemberComparator = generateComparator();
 	}
-	
-	
-	
+
 	@Override
 	public List<String> getNameOfMembers() {
 		// TODO: implement
@@ -60,9 +61,9 @@ public final class HamsterClub implements Club {
 		// TODO: implement
 		return null;
 	}
-	
+
 	@Override
-	public List<ClubMember> getMembers(){
+	public List<ClubMember> getMembers() {
 		return members;
 	}
 
