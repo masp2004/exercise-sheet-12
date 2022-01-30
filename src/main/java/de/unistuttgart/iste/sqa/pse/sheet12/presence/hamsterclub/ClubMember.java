@@ -112,8 +112,8 @@ public final class ClubMember implements Comparable<ClubMember> {
 		this.hasPaidFees = hasPaidFees;
 	}
 
-	
-	
-	
-
+	@Override
+	public /*@ pure @*/ String toString() {
+		return "ClubMember[name=" + this.name + ", age=" + this.age + ", contributions=" + this.contributions + ", hasPaidFees=" + this.hasPaidFees + "]";
+	}
 }
