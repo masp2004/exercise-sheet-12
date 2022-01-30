@@ -50,7 +50,8 @@ public interface Club {
 	public /*@ pure @*/ List<ClubMember> getMembersWithUnpaidFees();
 	
 	
-	/*@  
+	/*@ 
+	  @ requires There is at least one club member;
 	  @ ensures The result is the club member with the highest age value;
 	  @ ensures If two or more members share the highest age value,
 	  @         the member with the alphabetically highest ranking name is returned;   
@@ -58,7 +59,7 @@ public interface Club {
 	/**
 	 * Searches the List of members for the oldest individual, alphabetical order acts as a tie-breaker.
 	 * 
-	 * @throws NoSuchElementException if there is no oldest member 
+	 * @throws NoSuchElementException if there is no (oldest) member 
 	 * @return oldest member of this club
 	 */
 	public /*@ pure @*/ ClubMember getOldestMember();
