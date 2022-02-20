@@ -2,6 +2,7 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.collectionstreams;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,13 +111,7 @@ public final class Student {
 	}
 
 	public /*@ pure @*/ Map<String, Exam> getWrittenExams() {
-		final HashMap<String, Exam> copy = new HashMap<>();
-		for(final String key : writtenExams.keySet()) {
-			final Exam exam = writtenExams.get(key);
-			final Exam copyExam = new Exam(exam.getMark(),exam.getSubject());
-			copy.put(key,copyExam);
-		}
-		return copy;
+		return Collections.unmodifiableMap(writtenExams);
 	}
 
 }

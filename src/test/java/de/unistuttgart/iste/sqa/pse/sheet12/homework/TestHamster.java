@@ -40,7 +40,7 @@ public final class TestHamster {
 		
 		/* Check that the territory has size TERRITORY_SIZE as width and length */
 		assertEquals(new Size(TERRITORY_SIZE, TERRITORY_SIZE), game.getTerritory().getTerritorySize());
-		/* Check that Paule is at position (1,0) */
+		/* Check that Paule is at position (0,0) */
 		assertEquals(Location.ORIGIN, paule.getLocation());
 		/* Check that territory has correct amount of grains on it */
 		assertEquals(0, game.getTerritory().getTotalGrainCount());
