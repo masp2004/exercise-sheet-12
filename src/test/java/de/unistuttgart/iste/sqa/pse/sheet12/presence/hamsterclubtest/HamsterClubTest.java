@@ -24,7 +24,7 @@ public final class HamsterClubTest {
 		members.add(b);
 		ClubMember a = new ClubMember("a", 90, 10.0, true);
 		members.add(a);
-		ClubMember e = new ClubMember("e", 90, 50.0, false);
+		ClubMember e = new ClubMember("e", 80, 50.0, false);
 		members.add(e);
 		ClubMember d = new ClubMember("d", 40, 40.0, true);
 		members.add(d);
@@ -50,12 +50,27 @@ public final class HamsterClubTest {
 	@Test
 	public void testApplyDiscount() {
 		final ArrayList<ClubMember> list = new ArrayList<>(club.getMembers());
+
 		final Double[] expected = new Double[] {
-			list.get(2).getContributions() * 9 / 10, list.get(3).getContributions() * 9 / 10
+			list.get(0).getContributions(),
+			list.get(1).getContributions(),
+			list.get(2).getContributions() * 9 / 10,
+			list.get(3).getContributions() * 9 / 10,
+			list.get(4).getContributions(),
+			list.get(5).getContributions()
 		};
+
 		club.applyDiscount();
-		final Double[] actual =
-				new Double[] {list.get(2).getContributions(), list.get(3).getContributions()};
+
+		final Double[] actual = new Double[] {
+			list.get(0).getContributions(),
+			list.get(1).getContributions(),
+			list.get(2).getContributions(),
+			list.get(3).getContributions(),
+			list.get(4).getContributions(),
+			list.get(5).getContributions()
+		};
+
 		assertArrayEquals(expected, actual);
 	}
 
