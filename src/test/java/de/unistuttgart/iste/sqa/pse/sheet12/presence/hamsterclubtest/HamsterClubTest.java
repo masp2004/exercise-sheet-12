@@ -2,15 +2,13 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclubtest;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.Club;
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.ClubMember;
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.HamsterClub;
+import java.util.ArrayList;
+import java.util.Arrays;
+import org.junit.Before;
+import org.junit.Test;
 
 public final class HamsterClubTest {
 
@@ -52,10 +50,12 @@ public final class HamsterClubTest {
 	@Test
 	public void testApplyDiscount() {
 		final ArrayList<ClubMember> list = new ArrayList<>(club.getMembers());
-		final Double[] expected = new Double[] { list.get(2).getContributions() * 9 / 10,
-				list.get(3).getContributions() * 9 / 10 };
+		final Double[] expected = new Double[] {
+			list.get(2).getContributions() * 9 / 10, list.get(3).getContributions() * 9 / 10
+		};
 		club.applyDiscount();
-		final Double[] actual = new Double[] { list.get(2).getContributions(), list.get(3).getContributions() };
+		final Double[] actual =
+				new Double[] {list.get(2).getContributions(), list.get(3).getContributions()};
 		assertArrayEquals(expected, actual);
 	}
 
