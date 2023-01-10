@@ -7,6 +7,8 @@ import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.ClubMember;
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.HamsterClub;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,27 +53,27 @@ public final class HamsterClubTest {
 	public void testApplyDiscount() {
 		final ArrayList<ClubMember> list = new ArrayList<>(club.getMembers());
 
-		final Double[] expected = new Double[] {
-			list.get(0).getContributions(),
-			list.get(1).getContributions(),
-			list.get(2).getContributions() * 9 / 10,
-			list.get(3).getContributions() * 9 / 10,
-			list.get(4).getContributions(),
-			list.get(5).getContributions()
-		};
+		final List<Double> expected = Arrays.asList(
+				list.get(0).getContributions(),
+				list.get(1).getContributions(),
+				list.get(2).getContributions() * 9 / 10,
+				list.get(3).getContributions() * 9 / 10,
+				list.get(4).getContributions(),
+				list.get(5).getContributions()
+		);
 
 		club.applyDiscount();
 
-		final Double[] actual = new Double[] {
-			list.get(0).getContributions(),
-			list.get(1).getContributions(),
-			list.get(2).getContributions(),
-			list.get(3).getContributions(),
-			list.get(4).getContributions(),
-			list.get(5).getContributions()
-		};
+		final List<Double> actual = Arrays.asList(
+				list.get(0).getContributions(),
+				list.get(1).getContributions(),
+				list.get(2).getContributions(),
+				list.get(3).getContributions(),
+				list.get(4).getContributions(),
+				list.get(5).getContributions()
+		);
 
-		assertArrayEquals(expected, actual);
+		assertEquals(expected, actual);
 	}
 
 	@Test
