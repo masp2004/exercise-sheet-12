@@ -73,14 +73,13 @@ public final class StreamsAndFilterExercise {
 		// TODO: implement
 	}
 
-	private static void printStudentNamesOlderThanAndFailedExam(final StudentRecord record, final int olderThan,
-			final String exam) {
+	private static void printStudentNamesOlderThanAndFailedExam(
+			final StudentRecord record, final int olderThan, final String exam) {
 		// TODO: implement
 	}
 
-	private static void printStudentNamesOlderThanAndFailedExamChallenge(final StudentRecord record,
-			final int olderThan, final String exam) {
+	private static void printStudentNamesOlderThanAndFailedExamChallenge(
+			final StudentRecord record, final int olderThan, final String exam) {
 		// TODO: implement
 	}
-
 }

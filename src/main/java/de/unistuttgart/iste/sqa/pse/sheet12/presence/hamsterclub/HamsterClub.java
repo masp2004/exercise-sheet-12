@@ -15,8 +15,8 @@ public final class HamsterClub implements Club {
 	private final Comparator<ClubMember> clubMemberComparator;
 
 	/*@
-	  @ requires members must not be null;
-	  @*/
+	@ requires members must not be null;
+	@*/
 	public HamsterClub(final List<ClubMember> members) throws IllegalArgumentException {
 		if (members == null) {
 			throw new IllegalArgumentException();
@@ -66,5 +66,4 @@ public final class HamsterClub implements Club {
 	public List<ClubMember> getMembers() {
 		return members;
 	}
-
 }

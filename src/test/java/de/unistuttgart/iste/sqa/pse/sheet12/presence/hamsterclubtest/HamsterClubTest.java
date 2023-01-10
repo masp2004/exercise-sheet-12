@@ -2,15 +2,15 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclubtest;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.Club;
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.ClubMember;
 import de.unistuttgart.iste.sqa.pse.sheet12.presence.hamsterclub.HamsterClub;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public final class HamsterClubTest {
 
@@ -26,7 +26,7 @@ public final class HamsterClubTest {
 		members.add(b);
 		ClubMember a = new ClubMember("a", 90, 10.0, true);
 		members.add(a);
-		ClubMember e = new ClubMember("e", 90, 50.0, false);
+		ClubMember e = new ClubMember("e", 80, 50.0, false);
 		members.add(e);
 		ClubMember d = new ClubMember("d", 40, 40.0, true);
 		members.add(d);
@@ -52,11 +52,28 @@ public final class HamsterClubTest {
 	@Test
 	public void testApplyDiscount() {
 		final ArrayList<ClubMember> list = new ArrayList<>(club.getMembers());
-		final Double[] expected = new Double[] { list.get(2).getContributions() * 9 / 10,
-				list.get(3).getContributions() * 9 / 10 };
+
+		final List<Double> expected = Arrays.asList(
+				list.get(0).getContributions(),
+				list.get(1).getContributions(),
+				list.get(2).getContributions() * 9 / 10,
+				list.get(3).getContributions() * 9 / 10,
+				list.get(4).getContributions(),
+				list.get(5).getContributions()
+		);
+
 		club.applyDiscount();
-		final Double[] actual = new Double[] { list.get(2).getContributions(), list.get(3).getContributions() };
-		assertArrayEquals(expected, actual);
+
+		final List<Double> actual = Arrays.asList(
+				list.get(0).getContributions(),
+				list.get(1).getContributions(),
+				list.get(2).getContributions(),
+				list.get(3).getContributions(),
+				list.get(4).getContributions(),
+				list.get(5).getContributions()
+		);
+
+		assertEquals(expected, actual);
 	}
 
 	@Test

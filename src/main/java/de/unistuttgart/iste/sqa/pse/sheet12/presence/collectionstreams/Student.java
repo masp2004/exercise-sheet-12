@@ -7,19 +7,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 
+ *
  * Represents a student.
- * 
+ *
  * @author mfrank
  *
  */
 public final class Student {
 	/*@
-  	  @ invariant name != null && birthday != null && gender != null && emailAddress != null && writtenExam != null;
-   	  @*/
+	@ invariant name != null && birthday != null && gender != null && emailAddress != null && writtenExam != null;
+	@*/
 
 	public enum Sex {
-		MALE, FEMALE
+		MALE,
+		FEMALE
 	}
 
 	private final String name;
@@ -29,19 +30,19 @@ public final class Student {
 	private final Map<String, Exam> writtenExams;
 
 	/*@
-	  @ requires name != null && birthday != null && gender != null && email != null;
-	  @*/
+	@ requires name != null && birthday != null && gender != null && email != null;
+	@*/
 	/**
 	 * Constructor for a student.
-	 * 
+	 *
 	 * @param name
 	 * @param birthday
 	 * @param gender
 	 * @param email
 	 * @throws IllegalArgumentException if any of name, birthday, gender or email is {@code null}.
 	 */
-	public Student(final String name, final LocalDate birthday, final Sex gender, final String email) 
-		throws IllegalArgumentException {
+	public Student(final String name, final LocalDate birthday, final Sex gender, final String email)
+			throws IllegalArgumentException {
 
 		if (name == null || birthday == null || gender == null || email == null) {
 			throw new IllegalArgumentException();
@@ -54,12 +55,12 @@ public final class Student {
 	}
 
 	/*@
-	  @ requires exam != null;
-	  @*/
+	@ requires exam != null;
+	@*/
 	/**
-	 * Adds an exam to the exam-list of this student. It uses a map and the name of the exam as key. 
+	 * Adds an exam to the exam-list of this student. It uses a map and the name of the exam as key.
 	 * To get the exam use getExam(key) for a single exam or getWrittenExams() for all exams.
-	 * 
+	 *
 	 * @param exam
 	 * @throws IllegalArgumentException if exam is {@code null}.
 	 */
@@ -69,26 +70,26 @@ public final class Student {
 		}
 		writtenExams.put(exam.getSubject(), exam);
 	}
-	
+
 	/**
-	 * @return the age in years (int) of the student. 
+	 * @return the age in years (int) of the student.
 	 */
 	public int getAge() {
 		return (int) ChronoUnit.YEARS.between(birthday, LocalDate.now());
 	}
 
 	/*@
-	  @ requires examTag != null;
-	  @*/
+	@ requires examTag != null;
+	@*/
 	/**
 	 * Returns the exam for a given name.
-	 * 
-	 * @param examTag name of the exam 
+	 *
+	 * @param examTag name of the exam
 	 * @return exam for given key
 	 * @throws IllegalArgumentException if examTag is {@code null}.
 	 */
 	public /*@ pure @*/ Exam getExam(final String examTag) throws IllegalArgumentException {
-		if(examTag == null){
+		if (examTag == null) {
 			throw new IllegalArgumentException();
 		}
 		return writtenExams.get(examTag);
@@ -113,5 +114,4 @@ public final class Student {
 	public /*@ pure @*/ Map<String, Exam> getWrittenExams() {
 		return Collections.unmodifiableMap(writtenExams);
 	}
-
 }

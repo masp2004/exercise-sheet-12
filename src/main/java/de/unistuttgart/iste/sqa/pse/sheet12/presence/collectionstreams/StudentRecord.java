@@ -8,8 +8,8 @@ import java.util.Set;
  * to remove students after inserting them to the record.
  */
 public final class StudentRecord {
-	
-	//@ invariant students != null;
+
+	// @ invariant students != null;
 	private final Set<Student> students;
 
 	public StudentRecord() {
@@ -17,8 +17,8 @@ public final class StudentRecord {
 	}
 
 	/*@
-	  @ requires student != null;
-	  @*/
+	@ requires student != null;
+	@*/
 	/**
 	 * Adds a student to the current record
 	 * @param student student that will be added
@@ -37,5 +37,4 @@ public final class StudentRecord {
 	public Set<Student> getAllStudents() {
 		return students;
 	}
-
 }

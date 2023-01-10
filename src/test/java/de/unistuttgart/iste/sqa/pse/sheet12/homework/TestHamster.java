@@ -1,13 +1,14 @@
 package de.unistuttgart.iste.sqa.pse.sheet12.homework;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
 import de.hamstersimulator.objectsfirst.datatypes.Direction;
 import de.hamstersimulator.objectsfirst.datatypes.Location;
 import de.hamstersimulator.objectsfirst.datatypes.Size;
+import de.hamstersimulator.objectsfirst.external.model.Hamster;
 import de.hamstersimulator.objectsfirst.external.model.HamsterGame;
 import de.hamstersimulator.objectsfirst.external.model.TerritoryBuilder;
-import de.hamstersimulator.objectsfirst.external.model.Hamster;
+import org.junit.Test;
 
 public final class TestHamster {
 
@@ -38,7 +39,8 @@ public final class TestHamster {
 		final Hamster paule = game.getTerritory().getDefaultHamster();
 
 		/* Check that the territory has size TERRITORY_SIZE as width and length */
-		assertEquals(new Size(TERRITORY_SIZE, TERRITORY_SIZE), game.getTerritory().getTerritorySize());
+		assertEquals(
+				new Size(TERRITORY_SIZE, TERRITORY_SIZE), game.getTerritory().getTerritorySize());
 		/* Check that Paule is at position (0,0) */
 		assertEquals(Location.ORIGIN, paule.getLocation());
 		/* Check that territory has correct amount of grains on it */
@@ -46,5 +48,4 @@ public final class TestHamster {
 
 		game.stopGame();
 	}
-
 }
