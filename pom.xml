@@ -52,9 +52,9 @@
 				<version>3.1.0</version>
 				<executions>
 					<execution>
-						<id>StreamsAndFilterExercise</id>
+						<id>SomethingWithCalendars</id>
 						<configuration>
-							<mainClass>de.unistuttgart.iste.sqa.pse.sheet12.presence.collectionstreams.StreamsAndFilterExercise</mainClass>
+							<mainClass>de.unistuttgart.iste.sqa.pse.sheet12.homework.cleancode.SomethingWithCalendars</mainClass>
 						</configuration>
 					</execution>
 				</executions>
