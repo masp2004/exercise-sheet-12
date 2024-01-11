@@ -7,12 +7,20 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.stables;
  * @version 1.0
  */
 public class Veterinary {
-	private int id;
-	private String firstName;
-	private String lastName;
-	private String phone;
-
+	private final int id;
+	private final String firstName;
+	private final String lastName;
+	private final String phone;
+	
+	public Veterinary(int id, String firstName, String lastName, String phone) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+	}
+	
 	protected void careForAllPoultries() {}
 
-	private void careFor(LayingPoultry illLayingPoultry) {}
+	private void careFor(final LayingPoultry illLayingPoultry) {}
 }

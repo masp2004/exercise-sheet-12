@@ -6,8 +6,16 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.stables;
  * @version 1.0
  */
 public class LayingPoultry {
-	private int id;
-	private String type;
-	private double age;
-	private double weight;
+	private final int id;
+	private final String type;
+	private final double age;
+	private final double weight;
+	
+	public LayingPoultry(final int id, final String type, final double age, final double weight) {
+		super();
+		this.id = id;
+		this.type = type;
+		this.age = age;
+		this.weight = weight;
+	}
 }

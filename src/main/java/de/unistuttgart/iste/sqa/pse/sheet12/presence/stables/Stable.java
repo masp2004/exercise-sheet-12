@@ -9,20 +9,30 @@ import java.util.List;
  * @version 1.0
  */
 public class Stable {
-	public int id;
-	protected String addressOfStable;
-	protected float temperature;
-	private int capacity;
-	private double surface;
-	private List<Ventilator> ventilators;
-	private List<Cage> cages;
-	private Technician technician;
+	private final int id;
+	protected final String addressOfStable;
+	protected final float temperature;
+	private final int capacity;
+	private final double surface;
+	
+	private final List<Ventilator> ventilators;
+	private final List<Cage> cages;
+	private final Technician technician;
 
-	public Stable(final int id, final String address, final double surface, final Technician technician) {
+	public Stable(final int id, final String address, final double surface, final Technician technician, final float temperature, final int capacity, final List<Cage> cages, final List<Ventilator> ventilators) {
+		if (cages.size() < 10) {
+			throw new IllegalArgumentException("To few cages, must be at least 10");
+		}
+		
 		this.id = id;
 		this.addressOfStable = address;
 		this.surface = surface;
 		this.technician = technician;
+		this.temperature = temperature;
+		this.capacity = capacity;
+		
+		this.cages = cages;
+		this.ventilators = ventilators;
 	}
 
 	public void checkTemperature() {

@@ -9,16 +9,31 @@ import java.util.Date;
  * @version 1.0
  */
 public class Ventilator {
-	public int id;
-	private int width;
-	private int height;
+	private final int id;
+	private final int width;
+	private final int height;
 	private boolean on;
-	private Date purchaseDate;
-	private int powerClimatisation;
+	private final Date purchaseDate;
+	private final int powerClimatisation;
 
-	protected void turnOn() {}
+	public Ventilator(final int id, final int width, final int height, final boolean on, final Date purchaseDate,
+			final int powerClimatisation) {
+		super();
+		this.id = id;
+		this.width = width;
+		this.height = height;
+		this.on = on;
+		this.purchaseDate = purchaseDate;
+		this.powerClimatisation = powerClimatisation;
+	}
 
-	protected void turnOff() {}
+	protected void turnOn() {
+		this.on = true;
+	}
+
+	protected void turnOff() {
+		this.on = false;
+	}
 
 	protected boolean isOn() {
 		return this.on;

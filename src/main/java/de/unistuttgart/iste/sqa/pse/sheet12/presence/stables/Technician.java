@@ -6,10 +6,18 @@ package de.unistuttgart.iste.sqa.pse.sheet12.presence.stables;
  * @version 1.0
  */
 public class Technician {
-	private int id;
-	private String firstName;
-	private String lastName;
-	private String phone;
+	private final int id;
+	private final String firstName;
+	private final String lastName;
+	private final String phone;
+	
+	public Technician(final int id, final String firstName, final String lastName, final String phone) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+	}
 
-	protected void maintenanceRequest(Stable stable) {}
+	protected void maintenanceRequest(final Stable stable) {}
 }
