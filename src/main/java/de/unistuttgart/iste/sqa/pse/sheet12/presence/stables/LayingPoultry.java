@@ -12,10 +12,15 @@ public class LayingPoultry {
 	private final String type;
 	private final double age;
 	private final double weight;
-	
+
 	private final Optional<Veterinary> veterinary;
-	
-	public LayingPoultry(final int id, final String type, final double age, final double weight, final Optional<Veterinary> veterinary) {
+
+	public LayingPoultry(
+			final int id,
+			final String type,
+			final double age,
+			final double weight,
+			final Optional<Veterinary> veterinary) {
 		super();
 		this.id = id;
 		this.type = type;

@@ -14,8 +14,13 @@ public class Technician {
 	private final String phone;
 
 	private final Set<Stable> cages;
-	
-	public Technician(final int id, final String firstName, final String lastName, final String phone, final Set<Stable> stables) {
+
+	public Technician(
+			final int id,
+			final String firstName,
+			final String lastName,
+			final String phone,
+			final Set<Stable> stables) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -29,7 +34,7 @@ public class Technician {
 	public String getPhone() {
 		return phone;
 	}
-	
+
 	public Set<Stable> getStables() {
 		return cages;
 	}

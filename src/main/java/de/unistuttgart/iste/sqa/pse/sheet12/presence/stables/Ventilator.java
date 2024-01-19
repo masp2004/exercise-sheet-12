@@ -43,6 +43,4 @@ public class Ventilator {
 	public Date getPurchaseDate() {
 		return purchaseDate;
 	}
-	
-	
 }

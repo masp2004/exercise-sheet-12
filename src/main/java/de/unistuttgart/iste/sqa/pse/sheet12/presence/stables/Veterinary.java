@@ -14,31 +14,36 @@ public class Veterinary {
 
 	private final String lastName;
 	private final String phone;
-	
+
 	private final List<LayingPoultry> poultires;
-	
-	public Veterinary(final int id, final String firstName, final String lastName, final String phone, final List<LayingPoultry> poultires) {
+
+	public Veterinary(
+			final int id,
+			final String firstName,
+			final String lastName,
+			final String phone,
+			final List<LayingPoultry> poultires) {
 		super();
-		
+
 		if (poultires.size() > 200) {
 			throw new IllegalArgumentException("Veterian may take care of at max 200 poultries.");
 		}
-		
+
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
 		this.poultires = poultires;
 	}
-	
+
 	public void careForAllPoultries() {
 		// TODO
 	}
 
 	private void careFor(final LayingPoultry illPoultry) {
-		// TODO 
+		// TODO
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}

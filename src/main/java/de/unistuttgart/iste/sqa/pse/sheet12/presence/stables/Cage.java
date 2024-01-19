@@ -13,10 +13,16 @@ public class Cage<T extends LayingPoultry> {
 	private final int capacity;
 	private final int height;
 	private final double width;
-	
+
 	private final Set<LayingPoultry> poultries;
-	
-	public Cage(final int id, final int height, final double width, final int capacity, final boolean isFull, final Set<LayingPoultry> poultries) {
+
+	public Cage(
+			final int id,
+			final int height,
+			final double width,
+			final int capacity,
+			final boolean isFull,
+			final Set<LayingPoultry> poultries) {
 		super();
 		if (poultries.size() < 200) {
 			throw new IllegalArgumentException("Too Many Poultries in the Stable, must be less than 200.");
@@ -28,7 +34,7 @@ public class Cage<T extends LayingPoultry> {
 		this.isFull = isFull;
 		this.poultries = poultries;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -39,5 +45,5 @@ public class Cage<T extends LayingPoultry> {
 
 	private Set<LayingPoultry> getPoultries() {
 		return poultries;
-	}	
+	}
 }

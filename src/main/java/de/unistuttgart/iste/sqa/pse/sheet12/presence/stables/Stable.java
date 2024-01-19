@@ -14,23 +14,31 @@ public class Stable {
 	protected final float temperature;
 	private final int capacity;
 	private final double surface;
-	
+
 	private final List<Ventilator> ventilators;
 	private final List<Cage> cages;
 	private final Technician technician;
 
-	public Stable(final int id, final String address, final double surface, final Technician technician, final float temperature, final int capacity, final List<Cage> cages, final List<Ventilator> ventilators) {
+	public Stable(
+			final int id,
+			final String address,
+			final double surface,
+			final Technician technician,
+			final float temperature,
+			final int capacity,
+			final List<Cage> cages,
+			final List<Ventilator> ventilators) {
 		if (cages.size() < 10) {
 			throw new IllegalArgumentException("To few cages, must be at least 10");
 		}
-		
+
 		this.id = id;
 		this.addressOfStable = address;
 		this.surface = surface;
 		this.technician = technician;
 		this.temperature = temperature;
 		this.capacity = capacity;
-		
+
 		this.cages = cages;
 		this.ventilators = ventilators;
 	}
