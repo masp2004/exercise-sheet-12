@@ -7,16 +7,16 @@ import java.util.Scanner;
 
 
 /**
- * A class that does something with calendars.
+ * A class that accepts different date formats and prints the day of the week.
  *
  * @author MarvinSpiegel, Ismail Ratni
  */
-public class SomethingWithCalendars {
+public class calcWeekday {
 
     private static final DateTimeFormatter[] FORMATTERS = new DateTimeFormatter[] {
-        DateTimeFormatter.ofPattern("yyyy-MM-dd"),
-        DateTimeFormatter.ofPattern("yyyy/MM/dd"),
-        DateTimeFormatter.ofPattern("yyyy.MM.dd")
+            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
+            DateTimeFormatter.ofPattern("yyyy/MM/dd"),
+            DateTimeFormatter.ofPattern("yyyy.MM.dd")
     };
 
     public static void main(final String[] args) {
@@ -34,11 +34,11 @@ public class SomethingWithCalendars {
     }
 
     /**
-	 * Parses a date from a string.
-	 *
-	 * @param input the string to parse
-	 * @return the parsed date or null if the input is not a valid date
-	 */
+     * Parses a date from a string.
+     *
+     * @param input the string to parse
+     * @return the parsed date or null if the input is not a valid date
+     */
     private static LocalDate parseDate(final String input) {
         /*@
         @ loop_invariant i >= 0 && i <= FORMATTERS.length;
